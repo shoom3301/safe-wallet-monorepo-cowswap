@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
+  "framework": null,
   "buildCommand": "NODE_OPTIONS=--max-old-space-size=14192 yarn build",
   "outputDirectory": "out",
   "installCommand": "corepack enable && cd ../.. && yarn install --immutable",
