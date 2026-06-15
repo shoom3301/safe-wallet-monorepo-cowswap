@@ -1,11 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "NODE_OPTIONS=--max-old-space-size=16192 yarn build",
+  "buildCommand": "NODE_OPTIONS=--max-old-space-size=18192 yarn build",
   "outputDirectory": "out",
   "installCommand": "corepack enable && cd ../.. && yarn install --immutable",
-  "cleanUrls": true,
-  "trailingSlash": false,
   "git": {
     "deploymentEnabled": {
       "dev": true
