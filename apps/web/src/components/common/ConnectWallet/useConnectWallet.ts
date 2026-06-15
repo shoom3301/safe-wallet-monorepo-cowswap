@@ -4,8 +4,6 @@ import useOnboard, { connectWallet } from '@/hooks/wallets/useOnboard'
 const useConnectWallet = () => {
   const onboard = useOnboard()
 
-  console.log('onboard', onboard)
-
   return useCallback(() => {
     if (!onboard) {
       return Promise.resolve(undefined)
