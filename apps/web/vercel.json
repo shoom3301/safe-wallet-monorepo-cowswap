@@ -3,7 +3,7 @@
   "framework": null,
   "buildCommand": "NODE_OPTIONS=--max-old-space-size=18192 yarn build",
   "outputDirectory": "out",
-  "installCommand": "corepack enable && cd ../.. && yarn install --immutable",
+  "installCommand": "cd ../.. && yarn install --immutable",
   "git": {
     "deploymentEnabled": {
       "dev": true
