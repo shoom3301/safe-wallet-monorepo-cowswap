@@ -3,7 +3,7 @@
   "framework": "nextjs",
   "buildCommand": "yarn build",
   "outputDirectory": "out",
-  "installCommand": "cd ../.. && yarn install --immutable",
+  "installCommand": "corepack enable && cd ../.. && yarn install --immutable",
   "git": {
     "deploymentEnabled": {
       "dev": true
