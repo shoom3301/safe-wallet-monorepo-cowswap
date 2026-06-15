@@ -54,8 +54,9 @@ const SwapWidget = ({ sell }: Params) => {
   const feeEnabled = useHasFeature(FEATURES.NATIVE_SWAPS_FEE_ENABLED)
   const nativeCowSwapFeeV2Enabled = useHasFeature(FEATURES.NATIVE_COW_SWAP_FEE_V2)
   const isEurcvBoostEnabled = useHasFeature(FEATURES.EURCV_BOOST)
-  const useStagingCowServer = useHasFeature(FEATURES.NATIVE_SWAPS_USE_COW_STAGING_SERVER)
-  const cowSwapBaseUrl = useStagingCowServer ? 'https://staging.swap.cow.fi' : 'https://swap.cow.fi'
+  const cowSwapBaseUrl =
+    (typeof window === 'undefined' ? '' : new URLSearchParams(window.location.search).get('widgetUrl')) ||
+    'https://dev.swap.cow.fi'
 
   const { data: isSafeAddressBlocked } = useGetIsSanctionedQuery(safeAddress || skipToken)
   const { data: isWalletAddressBlocked } = useGetIsSanctionedQuery(wallet?.address || skipToken)
@@ -68,12 +69,8 @@ const SwapWidget = ({ sell }: Params) => {
 
   const blockedAddress = getKeyWithTrueValue(blockedAddresses)
 
-  const widgetUrl =
-    (typeof window === 'undefined' ? '' : new URLSearchParams(window.location.search).get('widgetUrl')) ||
-    'https://dev.swap.cow.fi'
-
   const [params, setParams] = useState<CowSwapWidgetParams>({
-    baseUrl: widgetUrl,
+    baseUrl: cowSwapBaseUrl,
     appCode: 'Safe Wallet Swaps', // Name of your app (max 50 characters)
     width: '100%', // Width in pixels (or 100% to use all available space)
     height: '860px',
