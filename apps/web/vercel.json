@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "NODE_OPTIONS=--max-old-space-size=31192 yarn build",
+  "buildCommand": "NODE_OPTIONS=--max-old-space-size=8192 yarn build",
   "outputDirectory": "out",
   "installCommand": "cd ../.. && yarn install --immutable",
   "git": {
