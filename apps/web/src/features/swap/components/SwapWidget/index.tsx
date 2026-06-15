@@ -68,7 +68,12 @@ const SwapWidget = ({ sell }: Params) => {
 
   const blockedAddress = getKeyWithTrueValue(blockedAddresses)
 
+  const widgetUrl =
+    (typeof window === 'undefined' ? '' : new URLSearchParams(window.location.search).get('widgetUrl')) ||
+    'https://dev.swap.cow.fi'
+
   const [params, setParams] = useState<CowSwapWidgetParams>({
+    baseUrl: widgetUrl,
     appCode: 'Safe Wallet Swaps', // Name of your app (max 50 characters)
     width: '100%', // Width in pixels (or 100% to use all available space)
     height: '860px',
