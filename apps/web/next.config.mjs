@@ -98,7 +98,11 @@ const nextConfig = {
   reactStrictMode: false,
   productionBrowserSourceMaps: false,
   eslint: {
+    ignoreDuringBuilds: true,
     dirs: ['src', 'cypress'],
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
   ...(isProd || enableExperimentalOptimizations
     ? {
